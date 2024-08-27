@@ -1,0 +1,57 @@
+.button-back {
+  width: 5rem;
+  height: 2rem;
+  cursor: pointer;
+  color: white; 
+  border-radius: 12px;
+  border: 1px solid white; 
+  background-color: rgb(83, 3, 88);
+  margin-top: 1rem; 
+}
+.animal-page {
+  display: flex;
+  border: 5px dashed hotpink; 
+  gap: 2rem; 
+  border-radius: 12px;
+  background-color: rgb(253, 234, 242); 
+  margin-top: 2rem; 
+
+  .animal-page-image-container {
+
+    .animal-page-image {
+      width: 100%;
+      border-radius: 10%;
+      max-width: 50rem;
+      min-width: 50rem;
+      min-height: 40rem;
+      max-height: 40rem;
+      object-fit: cover;
+    }
+  }
+
+  .animal-page-description-container {
+    padding: 2rem; 
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; 
+    border-radius: 20%;
+
+    .animal-page-name {
+      font-size: 3rem;
+    }
+
+    .button-feed {
+      width: 10rem;
+      height: 2rem;
+      border-radius: 12px;
+      border: 1px solid white; 
+      background-color: rgb(128, 0, 51);
+      cursor: pointer;
+      color: white; 
+
+      &:hover {
+        background-color: rgb(93, 4, 39);
+      }
+    }
+  }
+}
