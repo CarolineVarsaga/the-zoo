@@ -1,0 +1,67 @@
+$darkPurple: #5e106c; 
+$animalBackgroundColor: #a3dea2;
+$textColor: #201e1bde;
+
+.animals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; 
+ 
+  .animal-presentation {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 30rem;
+    background-color: $animalBackgroundColor;
+    border-radius: 2%;
+    border: 5px dashed $darkPurple; 
+    padding-bottom: 1rem;
+    gap: 1rem; 
+
+    .animal-name {
+      font-size: 2rem;
+      color: $textColor
+    }    
+  
+    .animal-image-container {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 1rem;
+  
+      .animal-image {
+        height: 20rem;
+        width: 25rem;
+        object-fit: cover;
+        border-radius: 5%;
+        border: 3px solid $darkPurple; 
+      }      
+    }
+
+    .animal-description {
+      width: 85%;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .animal-button {
+      width: 10rem; 
+      height: 2.2rem; 
+      border-radius: 12px; 
+      background-color:  $darkPurple; 
+      border: 1px solid white; 
+      cursor: pointer;
+
+      &:hover {
+        background-color: #432f47;
+      }
+      
+      .animal-button-link {
+        color: white; 
+        text-decoration: none;
+
+      }
+    }
+  }
+}
+
