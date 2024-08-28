@@ -37,7 +37,6 @@ import { get } from "../services/animalService";
             <div className="animal-description">{animal.shortDescription}</div>
             <Link to={`/animals/${animal.id}`} className="animal-button-link"><button className="animal-button">Se mer</button></Link>
           </div>
-         
         ))}
       </section>
     </>
