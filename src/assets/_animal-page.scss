@@ -40,10 +40,13 @@
       font-size: 3rem;
     }
 
-    .button-feed {
+    .button-feed, .button-disabled {
       width: 10rem;
       height: 2rem;
       border-radius: 12px;
+    }
+
+    .button-feed {
       border: 1px solid white; 
       background-color: rgb(128, 0, 51);
       cursor: pointer;
@@ -52,6 +55,12 @@
       &:hover {
         background-color: rgb(93, 4, 39);
       }
+    }    
+
+    .button-disabled {
+      background-color: rgb(62, 62, 62);
+      border: none; 
+      cursor: not-allowed;
     }
-  }
+  } 
 }
