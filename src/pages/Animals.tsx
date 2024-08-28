@@ -13,15 +13,26 @@ import { get } from "../services/animalService";
       try {
         const response = await get<IAnimal[]>(`${BASE_URL}`);
         setAnimals(response.data); 
+        localStorage.setItem("animals", JSON.stringify(response.data));
         setFetched(true);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
+
+    const getDataFromLocalStorage = () => {
+      const storedAnimals = localStorage.getItem("animals");
+      if (storedAnimals) {
+          setAnimals(JSON.parse(storedAnimals));
+          setFetched(true);
+      } else {
+          getData();
+      }
+  };
   
     useEffect(() => {
       if (fetched) return; 
-      getData(); 
+      getDataFromLocalStorage(); 
     })
 
   return (
