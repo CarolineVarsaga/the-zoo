@@ -12,8 +12,9 @@ import { get } from "../services/animalService";
     const getData = async () => {
       try {
         const response = await get<IAnimal[]>(`${BASE_URL}`);
-        setAnimals(response.data); 
-        localStorage.setItem("animals", JSON.stringify(response.data));
+        const data = response.data;
+        setAnimals(data); 
+        localStorage.setItem("animals", JSON.stringify(data));
         setFetched(true);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -23,10 +24,10 @@ import { get } from "../services/animalService";
     const getDataFromLocalStorage = () => {
       const storedAnimals = localStorage.getItem("animals");
       if (storedAnimals) {
-          setAnimals(JSON.parse(storedAnimals));
-          setFetched(true);
+        setAnimals(JSON.parse(storedAnimals));
+        setFetched(true);
       } else {
-          getData();
+        getData();
       }
   };
   
