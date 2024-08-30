@@ -1,6 +1,4 @@
 import axios from "axios";
-import { updateLocalStorage } from "../utils/localStorageUtils";
-
 const BASE_URL = "https://animals.azurewebsites.net/api/animals";
 
 export const formatDateTime = (date: Date): string => {
@@ -14,40 +12,54 @@ export const get = async <T>(url: string) => {
 }; 
 
 export const getAnimal = async (id: number) => {
-   return await get(`${BASE_URL}/${id}`);
-}
-
-export const feedAnimal = (animalId: number) => {   
-  const now = new Date();
-  const datetime = formatDateTime(now);
-
-  updateLocalStorage(`lastFed-${animalId}`, datetime);
-  nextFeedTime(animalId); 
- 
-  return datetime;
+return await get(`${BASE_URL}/${id}`);
 };
 
-export const nextFeedTime = (animalId: number) => {
-  const now = new Date();
-  const nextFeedDate = new Date(now.getTime() + 3 * 60 * 60 * 1000);
-  const nextFeedISOString = nextFeedDate.toISOString();
+const comingFeedTime = 3 * 60 * 60 * 1000; 
+const fourHours = 4 * 60 * 60 * 1000;
+
+const formatDate = (date: Date): string => {
+  return date.toLocaleString('sv-SE', { 
+    year: 'numeric',
+    month: 'numeric', 
+    day: 'numeric', 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit', 
+  });
+};
+
+export const calculateDateDifference = (lastFed: string): number => {
+  const current = new Date().getTime();
+  const lastFedTime = Date.parse(lastFed);
+  return current - lastFedTime;
+};
+
+export const hasBeenMoreThanFourHours = (lastFed: string): boolean => {
+  const timeDifference = calculateDateDifference(lastFed);
+  return timeDifference > fourHours;
+};
+
+export const hungryAnimal = (lastFed: string): boolean => {
+  const timeDifference = calculateDateDifference(lastFed)
+
+  const isHungry = timeDifference > comingFeedTime;
+
+  return isHungry || hasBeenMoreThanFourHours(lastFed);
+};
+
+export const formattedDate = (lastFed: string) => {
+  const lastFedDate = new Date(lastFed);
+  const formattedLastFed = new Date(lastFedDate.getTime())
+  const formattedTime = formatDate(formattedLastFed)
+
+  return formattedTime; 
+};
+
+export const nextFeedingTime = (lastFed: string): string => {
+  const lastFedTime = new Date(lastFed);
+  const nextFeedingTime = new Date(lastFedTime.getTime() + comingFeedTime);
+  const formattedTime = formatDate(nextFeedingTime);
   
-  updateLocalStorage(`nextFeed-${animalId}`, nextFeedISOString);
-  
-  const formattedNextFeedDate = formatDateTime(nextFeedDate);
-  return formattedNextFeedDate;
-}
-
-
-/* export const nextFeedTime = (animalId: number) => {
-  const now = new Date();
-  const nextFeedTime = new Date(now.getTime() + 10 * 1000);
-  //const nextFeed = formatDateTime(nextFeedTime);
-  const nextFeed = nextFeedTime.toISOString();
-
-  updateLocalStorage(`nextFeed-${animalId}`, nextFeed);
-
-  return nextFeed;
- 
-} */
-
+  return formattedTime; 
+};
