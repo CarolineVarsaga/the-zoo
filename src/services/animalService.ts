@@ -1,12 +1,6 @@
 import axios from "axios";
 const BASE_URL = "https://animals.azurewebsites.net/api/animals";
 
-export const formatDateTime = (date: Date): string => {
-  const formattedDate = date.toLocaleDateString([], { month: '2-digit', day: '2-digit', year: 'numeric' });
-  const formattedTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  return `${formattedDate}, kl: ${formattedTime}`;
-};
-
 export const get = async <T>(url: string) => {
   return await axios.get<T>(url); 
 }; 
@@ -16,7 +10,6 @@ return await get(`${BASE_URL}/${id}`);
 };
 
 const comingFeedTime = 3 * 60 * 60 * 1000; 
-const fourHours = 4 * 60 * 60 * 1000;
 
 const formatDate = (date: Date): string => {
   return date.toLocaleString('sv-SE', { 
@@ -32,17 +25,19 @@ const formatDate = (date: Date): string => {
 export const calculateDateDifference = (lastFed: string): number => {
   const current = new Date().getTime();
   const lastFedTime = Date.parse(lastFed);
+
   return current - lastFedTime;
 };
 
 export const hasBeenMoreThanFourHours = (lastFed: string): boolean => {
+  const fourHours = 4 * 60 * 60 * 1000;
   const timeDifference = calculateDateDifference(lastFed);
+
   return timeDifference > fourHours;
 };
 
 export const hungryAnimal = (lastFed: string): boolean => {
-  const timeDifference = calculateDateDifference(lastFed)
-
+  const timeDifference = calculateDateDifference(lastFed);
   const isHungry = timeDifference > comingFeedTime;
 
   return isHungry || hasBeenMoreThanFourHours(lastFed);
@@ -50,8 +45,8 @@ export const hungryAnimal = (lastFed: string): boolean => {
 
 export const formattedDate = (lastFed: string) => {
   const lastFedDate = new Date(lastFed);
-  const formattedLastFed = new Date(lastFedDate.getTime())
-  const formattedTime = formatDate(formattedLastFed)
+  const formattedLastFed = new Date(lastFedDate.getTime());
+  const formattedTime = formatDate(formattedLastFed);
 
   return formattedTime; 
 };
