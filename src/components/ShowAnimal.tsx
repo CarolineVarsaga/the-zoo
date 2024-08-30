@@ -3,6 +3,7 @@ import { IAnimal } from "../models/IAnimal"
 import { getAnimalsFromLocalStorage, saveToLocalStorage } from "../utils/localStorageUtils"
 import { nextFeedingTime, hungryAnimal, hasBeenMoreThanFourHours, formattedDate } from "../services/animalService";
 import { Link } from "react-router-dom";
+import Img from "./BrokenImagePlaceholder";
 
 export interface IShowAnimalProps {
   animal: IAnimal; 
@@ -37,15 +38,13 @@ const ShowAnimal = (props: IShowAnimalProps) => {
 
   const animalIsHungry = hungryAnimal(animal.lastFed);
   const animalIsStarving = hasBeenMoreThanFourHours(animal.lastFed);
-  const placeholderImage = 'src/assets/photoPlaceholder.jpg'; 
 
   return (
     <>       
       <Link to={`/animals`}><button className="button-back">Tillbaka</button></Link>
       <section className="animal-page">
         <picture className="animal-page-image-container">
-          <img src={animal.imageUrl} alt={animal.name} className="animal-page-image" onError={(e) => {
-              e.currentTarget.src = placeholderImage; }} /> 
+          <Img src={animal.imageUrl} alt={animal.name} className="animal-page-image"  />
         </picture>
         <div className="animal-page-description-container">
           <div>
