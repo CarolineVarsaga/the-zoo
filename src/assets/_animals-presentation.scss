@@ -1,6 +1,8 @@
 $darkPurple: #5e106c; 
 $animalBackgroundColor: #a3dea2;
 $textColor: #201e1bde;
+$animalStarving: #a95d5d; 
+$animalHungry: rgb(219, 219, 142); 
 
 .animals {
   display: flex;
@@ -8,12 +10,23 @@ $textColor: #201e1bde;
   justify-content: center;
   gap: 2rem; 
  
-  .animal-presentation {
+  [class^="animal-starving-"] {
+    background-color: $animalStarving;
+  } 
+
+  [class^="animal-hungry-"] {
+    background-color: $animalHungry; 
+  }
+
+  [class^="animal-fed-"] {
+    background-color: $animalBackgroundColor;
+  }
+
+  .animal-presentation, .animal-fed, .animal-hungry {
     display: flex;
     flex-direction: column; 
     align-items: center;
     width: 30rem;
-    background-color: $animalBackgroundColor;
     border-radius: 2%;
     border: 5px dashed $darkPurple; 
     padding-bottom: 1rem;
@@ -59,7 +72,6 @@ $textColor: #201e1bde;
       .animal-button-link {
         color: white; 
         text-decoration: none;
-
       }
     }
   }
