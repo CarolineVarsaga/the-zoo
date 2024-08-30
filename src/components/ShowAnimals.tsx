@@ -1,6 +1,7 @@
 import { IAnimal } from "../models/IAnimal"
 import { hasBeenMoreThanFourHours, hungryAnimal } from "../services/animalService"
 import { Link } from "react-router-dom";
+import Img from "./BrokenImagePlaceholder";
 
 export interface IShowAnimalProps {
   animals: IAnimal[]; 
@@ -8,8 +9,6 @@ export interface IShowAnimalProps {
 
 const ShowAnimals = (props: IShowAnimalProps) => {
   const { animals } = props; 
-  const placeholderImage = 'src/assets/photoPlaceholder.jpg';
-
 
   return (
     <>
@@ -33,9 +32,7 @@ const ShowAnimals = (props: IShowAnimalProps) => {
             >
               <h3 className="animal-name">{animal.name}</h3>
               <picture className="animal-image-container">
-                <img src={animal.imageUrl} alt={animal.name} className="animal-image" onError={(e) => {
-                  e.currentTarget.src = placeholderImage;
-                }} />
+              <Img src={animal.imageUrl} alt={animal.name} className="animal-image"  />
               </picture>
               <div className="animal-description">{animal.shortDescription}</div>
               <Link to={`/animals/${animal.id}`} className="animal-button-link">
