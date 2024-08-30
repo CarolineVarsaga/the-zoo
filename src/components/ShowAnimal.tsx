@@ -43,10 +43,10 @@ const ShowAnimal = (props: IShowAnimalProps) => {
     <>       
       <Link to={`/animals`}><button className="button-back">Tillbaka</button></Link>
       <section className="animal-page">
-        <div className="animal-page-image-container">
+        <picture className="animal-page-image-container">
           <img src={animal.imageUrl} alt={animal.name} className="animal-page-image" onError={(e) => {
               e.currentTarget.src = placeholderImage; }} /> 
-        </div>
+        </picture>
         <div className="animal-page-description-container">
           <div>
             <h2 className="animal-page-name">{animal.name}</h2>
