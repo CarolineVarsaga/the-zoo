@@ -55,12 +55,15 @@
       &:hover {
         background-color: rgb(93, 4, 39);
       }
+
+      &:disabled {
+        background-color: #3e3e3e;
+        color: #9c9c9c;
+        border: none; 
+        cursor: not-allowed;
+      }
     }    
 
-    .button-disabled {
-      background-color: rgb(62, 62, 62);
-      border: none; 
-      cursor: not-allowed;
-    }
+     
   } 
 }
