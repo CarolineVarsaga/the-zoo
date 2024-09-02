@@ -1,6 +1,7 @@
 import { hasBeenMoreThanFourHours } from '../services/animalService'; 
 import AnimalCard from '../components/AnimalCard';
 import useAnimals from '../hooks/useAnimals';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const { animals, error, fetched } = useAnimals();
@@ -11,16 +12,15 @@ const Home = () => {
 
   return (
     <>
-      <h2>Välkommen!</h2>
-      <p>Dina djur väntar på dig!</p>      
-      <div>
-        <h3>Hungriga djur</h3>
-        {hungryAnimals.length > 0 ? (
-          <AnimalCard />
-        ) : (
-          <p>Alla dina djur är mätta!</p>
-        )}
-      </div> 
+      <section className="home-page">
+        <h2 className='heading-welcome'>Välkommen!</h2>
+        <div>
+          <h3>{hungryAnimals.length > 0 ? "Hungriga djur" : "Alla dina djur är mätta!"}</h3>
+          {hungryAnimals.length > 0 ? (
+            <AnimalCard />
+          ) : (<Link to="/animals"><button className='animals-button'>Visa djur</button></Link>)}
+        </div> 
+      </section>
     </>
   );
 }
