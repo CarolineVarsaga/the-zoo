@@ -1,67 +1,83 @@
-.button-back {
-  width: 5rem;
-  height: 2rem;
-  cursor: pointer;
-  color: white; 
-  border-radius: 12px;
-  border: 1px solid white; 
-  background-color: rgb(83, 3, 88);
-  margin-top: 1rem; 
-}
-.animal-page {
+.animal-page-container {
   display: flex;
-  border: 5px dashed hotpink; 
+  justify-content: flex-start;
   gap: 2rem; 
-  border-radius: 12px;
-  background-color: rgb(253, 234, 242); 
-  margin-top: 2rem; 
+  align-items: center;
+  flex-direction: row;
+  margin-left: 1rem; 
 
-  .animal-page-image-container {
-
-    .animal-page-image {
-      width: 100%;
-      border-radius: 10%;
-      max-width: 50rem;
-      min-width: 50rem;
-      min-height: 40rem;
-      max-height: 40rem;
-      object-fit: cover;
-    }
+  .button-back {
+    width: 5rem;
+    height: 2rem;
+    cursor: pointer;
+    color: white; 
+    border-radius: 12px;
+    border: 1px solid white; 
+    background-color: rgb(83, 3, 88);
+    margin-top: 1rem; 
+    align-self: flex-start;
   }
 
-  .animal-page-description-container {
-    padding: 2rem; 
+  .animal-page {
     display: flex;
-    flex-direction: column;
-    gap: 3rem; 
-    border-radius: 20%;
+    border: 5px dashed hotpink; 
+    border-radius: 12px;
+    background-color: rgb(253, 234, 242); 
+    margin-top: 1rem; 
+    max-width: 80%;
+    min-width: 80%;
+    padding-left: 2rem; 
 
-    .animal-page-name {
-      font-size: 3rem;
+    .animal-page-image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .animal-page-image {
+        width: 100%;
+        border-radius: 10%;
+        max-width: 40rem;
+        min-width: 40rem;
+        min-height: 30rem;
+        max-height: 30rem;
+        object-fit: cover;
+      }
     }
 
-    .button-feed, .button-disabled {
-      width: 10rem;
-      height: 2rem;
-      border-radius: 12px;
-    }
+    .animal-page-description-container {
+      padding: 2rem; 
+      display: flex;
+      flex-direction: column;
+      gap: 3rem; 
+      border-radius: 20%;
 
-    .button-feed {
-      border: 1px solid white; 
-      background-color: rgb(128, 0, 51);
-      cursor: pointer;
-      color: white; 
-
-      &:hover {
-        background-color: rgb(93, 4, 39);
+      .animal-page-name {
+        font-size: 3rem;
       }
 
-      &:disabled {
-        background-color: #3e3e3e;
-        color: #9c9c9c;
-        border: none; 
-        cursor: not-allowed;
+      .button-feed, .button-disabled {
+        width: 10rem;
+        height: 2rem;
+        border-radius: 12px;
       }
-    }       
-  } 
+
+      .button-feed {
+        border: 1px solid white; 
+        background-color: rgb(128, 0, 51);
+        cursor: pointer;
+        color: white; 
+
+        &:hover {
+          background-color: rgb(93, 4, 39);
+        }
+
+        &:disabled {
+          background-color: #3e3e3e;
+          color: #9c9c9c;
+          border: none; 
+          cursor: not-allowed;
+        }
+      }       
+    } 
+  }
 }
