@@ -6,6 +6,10 @@
   flex-direction: row;
   margin-left: 1rem; 
 
+  @include response(sm) {
+    flex-direction: column;
+  }
+
   .button-back {
     width: 5rem;
     height: 2rem;
@@ -22,25 +26,50 @@
     display: flex;
     border: 5px dashed hotpink; 
     border-radius: 12px;
-    background-color: rgb(253, 234, 242); 
+    background-color: #fdeaf2; 
     margin-top: 1rem; 
     max-width: 80%;
     min-width: 80%;
     padding-left: 2rem; 
+
+    @include response(sm) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-left: 0;
+      padding-top: 0.5rem;  
+      max-width: 90%;
+      min-width: 90%;
+    }
 
     .animal-page-image-container {
       display: flex;
       align-items: center;
       justify-content: center;
 
+      .flaxan {
+        object-position: 15% 20%;
+      }
+
       .animal-page-image {
-        width: 100%;
         border-radius: 10%;
         max-width: 40rem;
         min-width: 40rem;
         min-height: 30rem;
         max-height: 30rem;
         object-fit: cover;
+
+        @include response(sm) {
+          align-self: center;
+          min-width: 90%;
+          max-width: 90%;
+          min-height: auto;
+          max-height: auto;
+          // min-width: 17rem;
+          // max-width: 17rem;
+          // min-height: 13rem;
+          // max-height: 13rem;
+        }
       }
     }
 
@@ -51,33 +80,49 @@
       gap: 3rem; 
       border-radius: 20%;
 
+      @include response(sm) {
+        gap: 0;
+      }
+
       .animal-page-name {
         font-size: 3rem;
+
+        @include response(sm) {
+          font-size: 2rem;
+        }
       }
 
-      .button-feed, .button-disabled {
-        width: 10rem;
-        height: 2rem;
-        border-radius: 12px;
+      div {
+        @include response(sm) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .button-feed, .button-disabled {
+          width: 10rem;
+          height: 2rem;
+          border-radius: 12px;
+        }
+
+        .button-feed {
+          border: 1px solid white; 
+          background-color: rgb(128, 0, 51);
+          cursor: pointer;
+          color: white; 
+
+          &:hover {
+            background-color: rgb(93, 4, 39);
+          }
+
+          &:disabled {
+            background-color: #3e3e3e;
+            color: #9c9c9c;
+            border: none; 
+            cursor: not-allowed;
+          }
+        }       
       }
-
-      .button-feed {
-        border: 1px solid white; 
-        background-color: rgb(128, 0, 51);
-        cursor: pointer;
-        color: white; 
-
-        &:hover {
-          background-color: rgb(93, 4, 39);
-        }
-
-        &:disabled {
-          background-color: #3e3e3e;
-          color: #9c9c9c;
-          border: none; 
-          cursor: not-allowed;
-        }
-      }       
     } 
   }
 }

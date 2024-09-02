@@ -39,7 +39,7 @@ const ShowAnimal = (props: IShowAnimalProps) => {
         <button onClick={() => navigate(-1)} className="button-back">Tillbaka</button>
         <div className="animal-page">
           <picture className="animal-page-image-container">
-            <Img src={animal.imageUrl} alt={animal.name} className="animal-page-image"  />
+            <Img src={animal.imageUrl} alt={animal.name} className={`animal-page-image ${animal.name.toLowerCase()}`}  />
           </picture>
           <div className="animal-page-description-container">
             <div>

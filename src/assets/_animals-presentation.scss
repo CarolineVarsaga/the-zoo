@@ -1,73 +1,102 @@
+.heading-container {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;    
+  @include response(sm) {
+    font-size: 1.1rem;
+  }
+}
 
-  .animals {
+.animals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; 
+  
+  [class^="animal-starving-"] {
+    background-color: $animalStarving;
+  } 
+
+  [class^="animal-hungry-"] {
+    background-color: $animalHungry; 
+  }
+
+  [class^="animal-fed-"] {
+    background-color: $animalBackgroundColor;
+  }
+
+  .animal-presentation, .animal-fed, .animal-hungry {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem; 
-   
-    [class^="animal-starving-"] {
-      background-color: $animalStarving;
-    } 
-  
-    [class^="animal-hungry-"] {
-      background-color: $animalHungry; 
+    flex-direction: column; 
+    align-items: center;
+    width: 30rem;
+    border-radius: 2%;
+    border: 5px dashed $darkPurple; 
+    padding-bottom: 1rem;
+    gap: 1rem; 
+
+    @include response(sm) {
+      width: 20rem;
     }
+
+    .animal-name {
+      font-size: 2rem;
+      color: $textColor;
+
+      @include response(sm) {
+        font-size: 1.5rem;
+      }
+    }    
   
-    [class^="animal-fed-"] {
-      background-color: $animalBackgroundColor;
-    }
-  
-    .animal-presentation, .animal-fed, .animal-hungry {
+    .animal-image-container {
       display: flex;
-      flex-direction: column; 
-      align-items: center;
-      width: 30rem;
-      border-radius: 2%;
-      border: 5px dashed $darkPurple; 
-      padding-bottom: 1rem;
-      gap: 1rem; 
-  
-      .animal-name {
-        font-size: 2rem;
-        color: $textColor
-      }    
-    
-      .animal-image-container {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 1rem;
-    
-        .animal-image {
-          height: 20rem;
-          width: 25rem;
-          object-fit: cover;
-          border-radius: 5%;
-          border: 3px solid $darkPurple; 
-        }      
+      flex-direction: row;
+      margin-bottom: 1rem;
+
+      @include response(sm) {
+        justify-content: center;
       }
   
-      .animal-description {
-        width: 85%;
-        font-size: 1.1rem;
-        font-weight: 500;
+      .flaxan {
+        object-position: 15% 20%;
       }
-  
-      .animal-button {
-        width: 10rem; 
-        height: 2.2rem; 
-        border-radius: 12px; 
-        background-color:  $darkPurple; 
-        border: 1px solid white; 
-        cursor: pointer;
-  
-        &:hover {
-          background-color: #432f47;
+
+      .animal-image {
+        height: 20rem;
+        width: 25rem;
+        object-fit: cover;
+        border-radius: 5%;
+        border: 3px solid $darkPurple; 
+
+        @include response(sm) {
+          width: 18rem;
+          height: 15rem;
         }
-        
-        .animal-button-link {
-          color: white; 
-          text-decoration: none;
-        }
+      }      
+    }
+
+    .animal-description {
+      width: 85%;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .animal-button {
+      width: 10rem; 
+      height: 2.2rem; 
+      border-radius: 12px; 
+      background-color:  $darkPurple; 
+      border: 1px solid white; 
+      cursor: pointer;
+
+      &:hover {
+        background-color: #432f47;
+      }
+      
+      .animal-button-link {
+        color: white; 
+        text-decoration: none;
       }
     }
-  }  
+  }
+}  

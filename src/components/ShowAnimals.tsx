@@ -12,7 +12,9 @@ const ShowAnimals = (props: IShowAnimalProps) => {
 
   return (
     <>
-      <h2>Dina underbara djur:</h2>
+      <div className="heading-container">
+        <h2>Dina underbara djur</h2>
+      </div>      
       <section className="animals">
         {animals.map((animal) => {          
           const { isHungry: animalIsHungry, isStarving: animalIsStarving } = getAnimalHungerStatus(animal.lastFed);          
@@ -30,7 +32,7 @@ const ShowAnimals = (props: IShowAnimalProps) => {
             >
               <h3 className="animal-name">{animal.name}</h3>
               <picture className="animal-image-container">
-                <Img src={animal.imageUrl} alt={animal.name} className="animal-image"  />
+                <Img src={animal.imageUrl} alt={animal.name} className={`animal-image ${animal.name.toLowerCase()}`}  />
               </picture>
               <div className="animal-description">{animal.shortDescription}</div>
               <Link to={`/animals/${animal.id}`} className="animal-button-link">

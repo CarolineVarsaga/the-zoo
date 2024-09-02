@@ -3,6 +3,9 @@
 
   .heading-welcome {
     font-size: 3rem;
+    @include response(sm) {
+      font-size: 2rem;
+    }
   }
 
   p {
@@ -10,7 +13,7 @@
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.5rem;    
   }
 
   .animals-button {

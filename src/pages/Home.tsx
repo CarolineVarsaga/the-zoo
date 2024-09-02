@@ -13,9 +13,9 @@ const Home = () => {
   return (
     <>
       <section className="home-page">
-        <h2 className='heading-welcome'>Välkommen!</h2>
+        <h2 className='heading-welcome'>Välkommen till Zoorummet</h2>
         <div>
-          <h3>{hungryAnimals.length > 0 ? "Hungriga djur" : "Alla dina djur är mätta!"}</h3>
+          <h3>{hungryAnimals.length > 0 ? "Dina djur är utsvultna!😫"  : "Alla dina djur är mätta!🥰"}</h3>
           {hungryAnimals.length > 0 ? (
             <AnimalCard />
           ) : (<Link to="/animals"><button className='animals-button'>Visa djur</button></Link>)}

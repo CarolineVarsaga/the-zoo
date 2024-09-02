@@ -13,7 +13,7 @@ export const AnimalCard = () => {
       <div key={animal.id} className={`animal-starving-${animal.id} animal-presentation`}>
         <h3 className="animal-name">{animal.name}</h3>
         <div className="animal-image-container">
-          <Img src={animal.imageUrl} alt={animal.name} className="animal-image"  />
+          <Img src={animal.imageUrl} alt={animal.name} className={`animal-image ${animal.name.toLowerCase()}`}  />
         </div>
         <Link to={`/animals/${animal.id}`} className="animal-button-link">
           <button className="animal-button">Till djuret</button>

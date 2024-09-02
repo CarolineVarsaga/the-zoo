@@ -1,19 +1,30 @@
-$backgroundColor: #b28db7; 
-
 .header {
   height: 7rem;
-  width: 100vw; 
+  width: 100svw; 
   background-color: $backgroundColor; 
   margin-top: -0.97rem; 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include response(sm) {
+    height: 6rem;
+    justify-content: flex-start;
+    padding-left: 1rem;
+  }
   
   .navigation {
     width: 70%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    h1 {
+      font-size: 2rem;
+      @include response(sm) {
+        font-size: 1.5rem;
+      }
+    }
 
     ul {
       list-style: none;
