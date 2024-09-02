@@ -34,30 +34,32 @@ const ShowAnimal = (props: IShowAnimalProps) => {
   };
 
   return (
-    <>       
-     <button onClick={() => navigate(-1)} className="button-back">Tillbaka</button>
-      <section className="animal-page">
-        <picture className="animal-page-image-container">
-          <Img src={animal.imageUrl} alt={animal.name} className="animal-page-image"  />
-        </picture>
-        <div className="animal-page-description-container">
-          <div>
-            <h2 className="animal-page-name">{animal.name}</h2>
-             <h3>
-              {animalIsStarving ? "Status: Jag är UTSVULTEN!😫" : animalIsHungry ? "Status: Magen kurrar...😵‍💫" : "Status: Mätt & belåten🥰"}
-            </h3>
-          </div>          
-          <p className="animal-page-description">{animal.longDescription}</p>
-          <div>
-            <button 
-              className='button-feed'
-              onClick={feedAnimal}
-              disabled={!animalIsHungry}            
-            >              
-              Mata
-            </button>          
-            <p>Du matade djuret: {formattedDate(animal.lastFed)}</p>      
-            <p>Du kan mata djuret tidigast: {nextFeedingTime(animal.lastFed)} </p>
+    <>           
+      <section className="animal-page-container">      
+        <button onClick={() => navigate(-1)} className="button-back">Tillbaka</button>
+        <div className="animal-page">
+          <picture className="animal-page-image-container">
+            <Img src={animal.imageUrl} alt={animal.name} className="animal-page-image"  />
+          </picture>
+          <div className="animal-page-description-container">
+            <div>
+              <h2 className="animal-page-name">{animal.name}</h2>
+              <h3>
+                {animalIsStarving ? "Status: Jag är UTSVULTEN!😫" : animalIsHungry ? "Status: Magen kurrar...😵‍💫" : "Status: Mätt & belåten🥰"}
+              </h3>
+            </div>          
+            <p className="animal-page-description">{animal.longDescription}</p>
+            <div>
+              <button 
+                className='button-feed'
+                onClick={feedAnimal}
+                disabled={!animalIsHungry}            
+              >              
+                Mata
+              </button>          
+              <p>Du matade djuret: {formattedDate(animal.lastFed)}</p>      
+              <p>Du kan mata djuret tidigast: {nextFeedingTime(animal.lastFed)} </p>
+            </div>
           </div>
         </div>
       </section>      
