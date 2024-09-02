@@ -17,7 +17,6 @@ const ShowAnimals = (props: IShowAnimalProps) => {
         {animals.map((animal) => {          
           const animalIsHungry = hungryAnimal(animal.lastFed);
           const animalIsStarving = hasBeenMoreThanFourHours(animal.lastFed);          
-          // const imageUrl = animal.imageUrl ? animal.imageUrl : placeholderImage;
           return (
             <div 
               key={animal.id} 
@@ -32,7 +31,7 @@ const ShowAnimals = (props: IShowAnimalProps) => {
             >
               <h3 className="animal-name">{animal.name}</h3>
               <picture className="animal-image-container">
-              <Img src={animal.imageUrl} alt={animal.name} className="animal-image"  />
+                <Img src={animal.imageUrl} alt={animal.name} className="animal-image"  />
               </picture>
               <div className="animal-description">{animal.shortDescription}</div>
               <Link to={`/animals/${animal.id}`} className="animal-button-link">
