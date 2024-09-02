@@ -1,28 +1,57 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Fj2E3Yxb)
-# React + TypeScript + Vite
+# Assignment - the Zoo
+Course: JavaScript - Advanced
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## SCREENSHOTS
+![Home page showing red cards with animals](src/assets/screenshots/homepage.png) 
+Home page. Only the most hungry animals (more then 4 hours since fed) is displaying here.
+![Animal page, here you can feed the animal](src/assets/screenshots/starving-animal.png)
+The animal page. Here you can feed the starving/hungry animal. 
+![Feed button turns grey and disabled when clicked](src/assets/screenshots/fed-animal.png)
+When it's fed, button goes disabled. 
+![Green cards on animals page. Happy and fed animals.](src/assets/screenshots/fed-animals-green.png)
+On the animals page, the card turns green when it's fed and happy.
+![Yellow animal card, it is hungry](src/assets/screenshots/hungry-animal-yellow.png)
+On the animals page, the card turns yellow when it's hungry. 
+![Enabled button on animal page](src/assets/screenshots/hungry-animal.png)
+When it's hungry, status updates and button is enabled again. 
+![Animals page, green cards displaying with animals](src/assets/screenshots/animals-page.png)
+Animals page.
+![Placeholder image for missing photo](src/assets/screenshots/missing-image.png)
+If an image is missing or broken, a placeholder image displays.
 
-Currently, two official plugins are available:
+## Built with:
+- Semantic HTML5 markup
+- CSS/SASS
+- Flexbox
+- React
+- React Router
+- TypeScript
+- Vite
+- ESLint 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Start the project
+>npm i 
+<br>npm run dev
 
-## Expanding the ESLint configuration
+### ABOUT THIS PROJECT
+In this assignment, the task was to create a Single Page Application (SPA) using React with TypeScript that includes the following features:
+- A home page where animals are presented with their names and a short description.
+- Each animal should be clickable, leading to a dedicated route that displays more detailed information about that specific animal.
+- On the animal's detail page, you should be able to mark the animal as fed through a button labeled "Feed Animal." When you click this button, the animal's status should be updated to indicate that it has been fed, and the button should no longer be clickable. You should also record the time when the animal was fed.
+- Ensure a good structure in your project regarding components and files.
+- Handle broken image links in a graceful way.
+- When you revisit the animal's page, check if more than three hours have passed since the last feeding. If so, reset the feeding status so that the animal can be fed again.
+- Display a notification on the home page and the animal’s page if it has been more than four hours since the animal was last fed.
+- You need to use at least one service in your application, both for fetching data and for shared calculations.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Deadline was six days.
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## AUTHOR
+Caroline Vårsaga -2024
+<br>Studying "Front End Developer" at Medieinstituet
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+GitHub: 
+https://github.com/CarolineVarsaga
+
+LinkedIn: https://www.linkedin.com/in/caroline-varsaga
