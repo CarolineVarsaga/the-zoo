@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { IAnimal } from "../models/IAnimal"
 import { getAnimalsFromLocalStorage, saveToLocalStorage } from "../utils/localStorageUtils"
-import { nextFeedingTime, hungryAnimal, hasBeenMoreThanFourHours, formattedDate } from "../services/animalService";
+import { nextFeedingTime, formattedDate } from "../services/animalService";
+import { formatDate } from "../services/animalService";
+import { getAnimalHungerStatus } from "../services/animalService";
 import { Link } from "react-router-dom";
 import Img from "./BrokenImagePlaceholder";
-import { formatDate } from "../services/animalService";
 
 export interface IShowAnimalProps {
   animal: IAnimal; 
@@ -12,9 +13,10 @@ export interface IShowAnimalProps {
 
 const ShowAnimal = (props: IShowAnimalProps) => {
   const [animal, setAnimal] = useState<IAnimal>(props.animal); 
+  const { isHungry: animalIsHungry, isStarving: animalIsStarving } = getAnimalHungerStatus(animal.lastFed);
 
   const feedAnimal = () => {
-    const storedAnimals = getAnimalsFromLocalStorage();
+    const storedAnimals = getAnimalsFromLocalStorage();   
 
     const updatedAnimal = {
       ...animal,
@@ -29,9 +31,6 @@ const ShowAnimal = (props: IShowAnimalProps) => {
     );
     saveToLocalStorage(updatedAnimalsInLocalStorage);
   };
-
-  const animalIsHungry = hungryAnimal(animal.lastFed);
-  const animalIsStarving = hasBeenMoreThanFourHours(animal.lastFed);
 
   return (
     <>       

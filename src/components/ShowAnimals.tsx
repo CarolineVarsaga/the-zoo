@@ -1,5 +1,5 @@
 import { IAnimal } from "../models/IAnimal"
-import { hasBeenMoreThanFourHours, hungryAnimal } from "../services/animalService"
+import { getAnimalHungerStatus } from "../services/animalService"
 import { Link } from "react-router-dom";
 import Img from "./BrokenImagePlaceholder";
 
@@ -15,8 +15,7 @@ const ShowAnimals = (props: IShowAnimalProps) => {
       <h2>Dina underbara djur:</h2>
       <section className="animals">
         {animals.map((animal) => {          
-          const animalIsHungry = hungryAnimal(animal.lastFed);
-          const animalIsStarving = hasBeenMoreThanFourHours(animal.lastFed);          
+          const { isHungry: animalIsHungry, isStarving: animalIsStarving } = getAnimalHungerStatus(animal.lastFed);          
           return (
             <div 
               key={animal.id} 
