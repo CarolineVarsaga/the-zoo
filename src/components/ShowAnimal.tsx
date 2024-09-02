@@ -4,6 +4,7 @@ import { getAnimalsFromLocalStorage, saveToLocalStorage } from "../utils/localSt
 import { nextFeedingTime, hungryAnimal, hasBeenMoreThanFourHours, formattedDate } from "../services/animalService";
 import { Link } from "react-router-dom";
 import Img from "./BrokenImagePlaceholder";
+import { formatDate } from "../services/animalService";
 
 export interface IShowAnimalProps {
   animal: IAnimal; 
@@ -17,14 +18,7 @@ const ShowAnimal = (props: IShowAnimalProps) => {
 
     const updatedAnimal = {
       ...animal,
-      lastFed: new Date().toLocaleString('sv-SE', {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-      }),
+      lastFed: formatDate(new Date()),
       isFed: true,
     };
 
