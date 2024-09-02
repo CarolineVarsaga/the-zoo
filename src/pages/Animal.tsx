@@ -1,12 +1,9 @@
-import { getAnimalsFromLocalStorage } from "../utils/localStorageUtils";
-import { useParams } from "react-router-dom";
 import ShowAnimal from "../components/ShowAnimal";
+import { useLoaderData } from "react-router-dom";
+import { IAnimal } from "../models/IAnimal";
 
-const Animal = () => {
-  const storedAnimals = getAnimalsFromLocalStorage(); 
-  const params = useParams<{ id?: string }>(); 
-
-  const currentAnimal = storedAnimals.find((animal) => animal.id.toString() === params.id);
+const Animal = () => { 
+  const currentAnimal = useLoaderData() as IAnimal | null; 
 
   return (
     <>
