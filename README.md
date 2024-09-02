@@ -1,5 +1,6 @@
 # Assignment - the Zoo
 Course: JavaScript - Advanced
+Visit the project: https://carolinevarsaga.github.io/the-zoo/
 
 ## SCREENSHOTS
 ![Home page showing red cards with animals](src/assets/screenshots/homepage.png) 
