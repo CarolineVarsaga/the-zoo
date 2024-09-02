@@ -18,8 +18,7 @@ export const AnimalCard = () => {
         <Link to={`/animals/${animal.id}`} className="animal-button-link">
           <button className="animal-button">Till djuret</button>
         </Link>
-      </div>
-      
+      </div>      
     ))}
   </section></>
   )
