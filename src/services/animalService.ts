@@ -3,13 +3,6 @@ import axios from "axios";
 const BASE_URL = "https://animals.azurewebsites.net/api/animals";
 const comingFeedTime = 3 * 60 * 60 * 1000; 
 
-const hasBeenMoreThanFourHours = (lastFed: string): boolean => {
-  const fourHours = 4 * 60 * 60 * 1000;
-  const timeDifference = calculateDateDifference(lastFed);
-
-  return timeDifference > fourHours;
-};
-
 const hungryAnimal = (lastFed: string): boolean => {
   const timeDifference = calculateDateDifference(lastFed);
   const isHungry = timeDifference > comingFeedTime;
@@ -45,6 +38,13 @@ export const calculateDateDifference = (lastFed: string): number => {
   const lastFedTime = Date.parse(lastFed);
 
   return current - lastFedTime;
+};
+
+export const hasBeenMoreThanFourHours = (lastFed: string): boolean => {
+  const fourHours = 4 * 60 * 60 * 1000;
+  const timeDifference = calculateDateDifference(lastFed);
+
+  return timeDifference > fourHours;
 };
 
 export const getAnimalHungerStatus = (lastFed: string | Date) => {
