@@ -4,7 +4,7 @@ import { getAnimalsFromLocalStorage, saveToLocalStorage } from "../utils/localSt
 import { nextFeedingTime, formattedDate } from "../services/animalService";
 import { formatDate } from "../services/animalService";
 import { getAnimalHungerStatus } from "../services/animalService";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Img from "./BrokenImagePlaceholder";
 
 export interface IShowAnimalProps {
@@ -14,6 +14,7 @@ export interface IShowAnimalProps {
 const ShowAnimal = (props: IShowAnimalProps) => {
   const [animal, setAnimal] = useState<IAnimal>(props.animal); 
   const { isHungry: animalIsHungry, isStarving: animalIsStarving } = getAnimalHungerStatus(animal.lastFed);
+  const navigate = useNavigate(); 
 
   const feedAnimal = () => {
     const storedAnimals = getAnimalsFromLocalStorage();   
@@ -34,7 +35,7 @@ const ShowAnimal = (props: IShowAnimalProps) => {
 
   return (
     <>       
-      <Link to={`/animals`}><button className="button-back">Tillbaka</button></Link>
+     <button onClick={() => navigate(-1)} className="button-back">Tillbaka</button>
       <section className="animal-page">
         <picture className="animal-page-image-container">
           <Img src={animal.imageUrl} alt={animal.name} className="animal-page-image"  />
