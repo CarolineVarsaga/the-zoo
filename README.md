@@ -3,21 +3,28 @@ Course: JavaScript - Advanced
 
 ## SCREENSHOTS
 ![Home page showing red cards with animals](src/assets/screenshots/homepage.png) 
-Home page. Only the most hungry animals (more then 4 hours since fed) is displaying here.
+<br>Home page. Only the most hungry animals (more then 4 hours since fed) is displaying here.
+
 ![Animal page, here you can feed the animal](src/assets/screenshots/starving-animal.png)
-The animal page. Here you can feed the starving/hungry animal. 
+<br>The animal page. Here you can feed the starving/hungry animal. 
+
 ![Feed button turns grey and disabled when clicked](src/assets/screenshots/fed-animal.png)
-When it's fed, button goes disabled. 
+<br> When it's fed, button goes disabled. 
+
 ![Green cards on animals page. Happy and fed animals.](src/assets/screenshots/fed-animals-green.png)
-On the animals page, the card turns green when it's fed and happy.
+<br>On the animals page, the card turns green when it's fed and happy.
+
 ![Yellow animal card, it is hungry](src/assets/screenshots/hungry-animal-yellow.png)
-On the animals page, the card turns yellow when it's hungry. 
+<br> On the animals page, the card turns yellow when it's hungry. 
+
 ![Enabled button on animal page](src/assets/screenshots/hungry-animal.png)
-When it's hungry, status updates and button is enabled again. 
+<br> When it's hungry, status updates and button is enabled again. 
+
 ![Animals page, green cards displaying with animals](src/assets/screenshots/animals-page.png)
-Animals page.
+<br> Animals page.
+
 ![Placeholder image for missing photo](src/assets/screenshots/missing-image.png)
-If an image is missing or broken, a placeholder image displays.
+<br> If an image is missing or broken, a placeholder image displays.
 
 ## Built with:
 - Semantic HTML5 markup
