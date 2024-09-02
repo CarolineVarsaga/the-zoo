@@ -11,7 +11,7 @@ return await get(`${BASE_URL}/${id}`);
 
 const comingFeedTime = 3 * 60 * 60 * 1000; 
 
-const formatDate = (date: Date): string => {
+export const formatDate = (date: Date): string => {
   return date.toLocaleString('sv-SE', { 
     year: 'numeric',
     month: 'numeric', 
