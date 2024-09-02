@@ -50,15 +50,15 @@ const ShowAnimal = (props: IShowAnimalProps) => {
           <div>
             <h2 className="animal-page-name">{animal.name}</h2>
              <h3>
-              {animalIsStarving ? "Status: Jag är UTSVULTEN!" : animalIsHungry ? "Status: Magen kurrar..." : "Status: Mätt & belåten"}
+              {animalIsStarving ? "Status: Jag är UTSVULTEN!😫" : animalIsHungry ? "Status: Magen kurrar...😵‍💫" : "Status: Mätt & belåten🥰"}
             </h3>
           </div>          
           <p className="animal-page-description">{animal.longDescription}</p>
           <div>
             <button 
-            className='button-feed'
-            onClick={feedAnimal}
-            disabled={!animalIsHungry}            
+              className='button-feed'
+              onClick={feedAnimal}
+              disabled={!animalIsHungry}            
             >              
               Mata
             </button>          
